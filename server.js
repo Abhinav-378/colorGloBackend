@@ -10,8 +10,11 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-    origin: 'https://color-glo.vercel.app/'
-  }));
+    origin: 'https://color-glo.vercel.app', // Specific allowed origin
+    methods: 'GET,POST,OPTIONS',  // Allow specific methods
+    allowedHeaders: 'Content-Type',  // Allow specific headers
+    credentials: true  // If you need to allow credentials (like cookies)
+}));
   
 app.use(bodyParser.json());
 
